@@ -34,13 +34,40 @@ function list3_exp(list){
 }
 
 
-
 function list4_exp(list){
     return head(head(head(tail(tail(list)))));
 }
 
 
 
+
+function even_number(items){
+    function get_item(n, list_length, list_input, even_num){
+        return n  >= list_length
+                ? even_num
+                : list_ref(items, n) % 2 === 0
+                ? get_item(n + 1, list_length, list_input, 
+                even_num + 1)
+                : get_item(n + 1, list_length, list_input, 
+                even_num);
+    }
+    return get_item(0, length(items), items, 0);
+    
+}
+
+
+
+
+function even_number_recur(items){
+    return is_null(items)
+            ? 0
+            : head(items) % 2 === 0
+            ? even_number_recur(tail(items)) + 1
+            : even_number_recur(tail(items));
+}
+
+
+even_number_recur(list(1, 2, 3, 4, 6));
 
 
 
