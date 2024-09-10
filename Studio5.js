@@ -69,7 +69,25 @@ function even_number_recur(items){
 
 even_number_recur(list(1, 2, 3, 4, 6));
 
+// TA's method
+const example = list(1, 2, 3, 4, 5, 6, 7);
 
+function sums(lst) {
+    
+    function helper(lst, even, odd, is_even) {
+        
+        return is_null(lst)
+            ? list(even, odd)
+            : is_even
+                ? helper(tail(lst), even + head(lst), odd, false)
+                : helper(tail(lst), even, odd + head(lst), true);
+    }
+    
+    return helper(lst, 0, 0, true);
+}
+
+
+sums(example);
 
 
 
