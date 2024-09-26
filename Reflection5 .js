@@ -39,8 +39,6 @@ function tree_sum_ac(tree) {
 }
 tree_sum_ac(my_tree);
 
-
-
 /**
 
 function flatten_ac(tree) {
@@ -49,9 +47,6 @@ function flatten_ac(tree) {
 
 flatten_ac(LoL);
 **/
-
-
-
 //Q3
 // use accumulate function to implement the accumulate_tree function 
 function accumulate(op, initial, xs) {
@@ -63,11 +58,15 @@ function accumulate(op, initial, xs) {
 
 function accmumulate_tree(f, op, initial, tree){
     return accumulate(
-        (x, ys) => !is_list(x)? op(x, ys): op(accmumulate_tree(f, op, initial, x), accmumulate_tree(f, op, initial, ys)),
+        (x, ys) => !is_list(x)? op(x, ys): op(accmumulate_tree(f, op, initial, x), ys),
         initial,
         tree
         );
 }
+//如何理解accumulate的第一个输入量op，op是将两个输入值(x,y)连接到一块，y是已经处理好的式子，可以去思考一个新的值加到initial上面
+
+
+
 
 //但是感觉像脱裤子放屁，难绷
 // actually, list can have list as elements, so the implementation of accumulate
