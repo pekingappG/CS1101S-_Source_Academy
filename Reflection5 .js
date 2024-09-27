@@ -30,7 +30,8 @@ function accumulate_tree(f, op, initial, tree){
     return is_null(tree)
             ? initial
             : is_list(head(tree))
-            ? op(accumulate_tree(f, op, initial, head(tree)), accumulate_tree(f, op, initial, tail(tree)))
+            ? op(accumulate_tree(f, op, initial, head(tree)), 
+                 accumulate_tree(f, op, initial, tail(tree)))
             : op(f(head(tree)), accumulate_tree(f, op, initial, tail(tree)));
 }
 
